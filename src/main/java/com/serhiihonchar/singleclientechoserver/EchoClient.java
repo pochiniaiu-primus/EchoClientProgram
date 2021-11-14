@@ -1,4 +1,4 @@
-package com.serhiihonchar;
+package com.serhiihonchar.singleclientechoserver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
