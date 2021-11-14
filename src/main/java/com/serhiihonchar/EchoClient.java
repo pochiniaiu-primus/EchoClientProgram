@@ -14,8 +14,9 @@ public class EchoClient {
         System.out.println("Echo Client");
         try {
 //            InetAddress localAddress = InetAddress.getLocalHost();
-            try (Socket clientSocket = new Socket("localhost", 4004);
-                 PrintWriter out = new PrintWriter(//writing to socket
+            try (Socket clientSocket = new Socket("localhost", 4004);//we can write port=0
+//PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+                 PrintWriter out = new PrintWriter(// writing to socket
                          clientSocket.getOutputStream(), true);
                  BufferedReader in = new BufferedReader(// reading from socket
                          new InputStreamReader(clientSocket.getInputStream()))) {
@@ -28,7 +29,7 @@ public class EchoClient {
                     }
                     out.println(inputLine);
                     String response = in.readLine();
-                    System.out.println("Echo " + response);
+                    System.out.println("echo: " + response);
                 }
             } catch (UnknownHostException e) {
                 e.printStackTrace();

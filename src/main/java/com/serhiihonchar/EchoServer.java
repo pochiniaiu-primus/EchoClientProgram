@@ -12,6 +12,7 @@ public class EchoServer {
         System.out.println("Echo Server");
         try (ServerSocket serverSocket =
                      new ServerSocket(4004)) {//listening port
+            System.out.println("Server work!");
             Socket clientSocket = serverSocket.accept();//waiting until client connect
             try (BufferedReader in = new BufferedReader(
                     new InputStreamReader(clientSocket.getInputStream()));//read the message from the client
@@ -27,7 +28,7 @@ public class EchoServer {
             }
         } catch (IOException e) {
             System.out.println("Exception caught when trying to listen on port "
-                    + 3000 + " or listening for a connection");
+                    + 4004 + " or listening for a connection");
             System.out.println(e.getMessage());
         }
     }
